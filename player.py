@@ -7,7 +7,9 @@ class Player:
         self.credit = 0
         self.team = []
         self.ordi = []
-        self.inventory = Inventory()
+        self.inventory = []
+        # self.ordi = Ordi()
+        # self.inventory = Inventory()
 
     def getName(self):
         return self.name
@@ -32,6 +34,12 @@ class Player:
                 print(pokemon.name+" a été ajouté à l'équipe.")
         else:
             print("Vous possédez déjà "+pokemon.name)
+
+    def delPokemon(self, index):
+        if ((0 <= index)and(index<=len(self.team))):
+            pokemon = self.team[index]
+            del self.team[index]
+            print(pokemon.name+" a bien été supprimé.")
     
     def displayTeam(self):
         i = 0
