@@ -1,2 +1,0 @@
-class shop:
-    print('shop')
