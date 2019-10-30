@@ -28,10 +28,10 @@ class Player:
         if (pokemon not in self.team)and(pokemon not in self.ordi):
             if (len(self.team) == 6):
                 self.ordi.append(pokemon)
-                print(pokemon.name+" a été ajouté à l'ordi.")
+                print(pokemon["name"]+" a été ajouté à l'ordi.")
             else:
                 self.team.append(pokemon)
-                print(pokemon.name+" a été ajouté à l'équipe.")
+                print(pokemon["name"]+" a été ajouté à l'équipe.")
         else:
             print("Vous possédez déjà "+pokemon.name)
 
