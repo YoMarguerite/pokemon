@@ -1,7 +1,7 @@
 import random
 
 from player import Player
-from Pokedex import Pokedex
+from Pokedex import pokedex
 from Api import Api
 
 class Catch:
@@ -20,9 +20,10 @@ class Catch:
         self.pokemon_joueur = pokemon_joueur
 
     def set_pokemon_capture(self):
-        pokemon_capture = Pokedex.listePokemon
-        random_number = len(pokemon_capture["results"])
-        self.pokemon_capture = pokemon_capture["results"][random.randint(1, random_number)]
+        pokemon_capture = pokedex.getPokemon(20)
+        print(pokemon_capture)
+        random_number = len(pokemon_capture)
+        self.pokemon_capture = pokemon_capture[random.randint(1, random_number)].name
 
     def set_pokeball(self):
         self.pokeball = self.joueur.getInventory()
@@ -92,4 +93,5 @@ class Catch:
 
 
 pokemon = Catch(Player("Paul"))
-
+pokemon.set_pokemon_capture()
+print(pokemon.get_pokemon_capture())
