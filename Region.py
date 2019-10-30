@@ -9,9 +9,13 @@ class Region:
         self.name = name
 
     def choixRegion(self, list_region):
+        preambule = "| LISTE DES DESTINATIONS |"
+        print("-" * len(preambule))
+        print(preambule)
+        print("-" * len(preambule))
         i = 1
-        for name in list_region:
-            print(str(i) + " : " + name)
+        for names in list_region:
+            print(str(i) + " : " + names)
             i = i + 1
         choix_user = int(input("Où voulez-vous allez ?"))
         self.setRegion(str(list_region[choix_user - 1]))
@@ -25,6 +29,10 @@ class Region:
         return list_region
 
     def afficherRegion(self, index):
+        preambule = "Vous voilà arriver dans la région : " + str(self.name)
+        print('-' * len(preambule))
+        print(preambule)
+        print('-' * len(preambule))
         if index == 1:
             print('                               ___        ___       T__')
             print('                    ________   | |~~~~~~~~| ||~~~~| |||')
