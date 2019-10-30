@@ -1,4 +1,4 @@
-
+from inventory import Inventory
 
 class Player:
 
@@ -7,9 +7,8 @@ class Player:
         self.credit = 0
         self.team = []
         self.ordi = []
-        self.inventory = []
         # self.ordi = Ordi()
-        # self.inventory = Inventory()
+        self.inventory = Inventory(50)
 
     def getName(self):
         return self.name
@@ -22,6 +21,9 @@ class Player:
 
     def addCredit(self, nb):
         self.credit = self.credit + nb
+
+    def getInventory(self):
+        return self.inventory
 
     def getPokemon(self, index):
         if ((0 <= index)and(index<=len(self.team))):
@@ -50,17 +52,3 @@ class Player:
         for pokemon in self.team:
             print(str(i)+"-"+pokemon.name)
             i+=1
-
-class Inventory:
-    def __init__(self):
-        pass
-# class pokemon:
-#     def __init__(self, name):
-#         self.name = name
-
-# pokemon = pokemon("salamanche")
-# player = Player("yop")
-# print(player.getName())
-# player.addPokemon(pokemon)
-# player.addPokemon(pokemon)
-# player.displayTeam()
