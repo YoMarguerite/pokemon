@@ -9,6 +9,7 @@ class Shop:
 
     def __init__(self):
         self.filllistitem()
+        self.filllistcategory()
 
     def filllistitem(self):
         results = Api.callApi('item/').get('results')
@@ -19,11 +20,15 @@ class Shop:
             self.listItems.append(Items(item.get('name'), item.get('cost')))
 
     def filllistcategory(self):
+        """
+        :return: void
+        """
         results = Api.callApi('item-category/').get('results')
         for cat in results:
             self.listCategory.append(ItemCategory(cat.get('name')))
 
     def getListItem(self):
+
         """
         :rtype: Items[]
         """
@@ -32,8 +37,20 @@ class Shop:
     def getListCategory(self):
         return self.listCategory
 
-    def buy(self):
-        print('Acheter')
+    def buy(self, player, item):
+        """
+        :type player: Player
+        :type item: Items
+        """
+        player.getInventory().addItem(item)
 
-    def sell(self):
-        print('Vendre')
+    def sell(self, player, item):
+        """
+
+        :param player: Player
+        :param item: Items
+        """
+        if item.getCost() > 0:
+            amount = item.getCost * 0.20
+            player.addCredit(amount)
+            ("Vous avez vendu l'objet " + item.getName())
