@@ -1,7 +1,8 @@
 from Api import Api
 import requests
+
 class Pokemon:
-   def __init__(self, id, name,url):
+   def __init__(self, id, name, url):
       self.id = id
       self.name = name
       self.url = url
@@ -13,37 +14,37 @@ class Pokemon:
       for pokemon in typePokejson["types"]:
          typePoke = typePoke + pokemon['type']['name'] + ' '
          j=j+1
-         #print(typePoke)            
+         #  print(typePoke)            
       self.typePoke = typePoke
       attackPoke = ''
       for pokemon in typePokejson["moves"]:
-         if i < 8:
+         if i < 7:
             attackPoke = attackPoke + pokemon['move']['name'] + '  '
             i=i+1
-            #print(attackPoke)
+            #  print(attackPoke)
       self.attackPoke = attackPoke 
-   
+
    def getId(self):
-        return self.id 
+      return self.id 
    def setId(self, id ):
-      self.id = id
-   
+      self.id == id
+
    def getName(self):
-        return self.name
+      return self.name
    def setName(self, name):
       self.name = name
-   
+
    def getUrl(self):
-        return self.url
+      return self.url
    def setUrl(self, url):
       self.url = url
-   
+
    def getTypePoke(self):
-        return self.typePoke
+      return self.typePoke
    def setTypePoke(self, typePoke):
       self.typePoke = typePoke
 
    def getAttackPoke(self):
-        return self.attackPoke
+      return self.attackPoke
    def setAttackPoke(self, attackPoke):
       self.attackPoke = attackPoke

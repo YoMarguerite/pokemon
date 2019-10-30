@@ -11,6 +11,8 @@ def menu(joueur, region):
     print("| " + joueur + " | | " + region + " | ")
     print("-" * len_nom + " " + len_region * "-")
     print("1 - Aller dans une nouvelle région")
+    print("2 - Accèder au Pokedex")
+    print("3 - Visualiser un Pokemon du pokedex")
 
 #Initialisation
 pokedex = Pokedex()
@@ -29,16 +31,20 @@ joueur = Player(joueur_nom)
 #Début du jeu
 quitter = False
 while quitter == False:
-    os.system('cls')
     menu(joueur.getName(), joueur_region.getRegion())
     choix_menu = int(input("Que souhaitez-vous faire ?"))
-    os.system('cls')
+    os.system('cls') # permet de clear la zone
     if choix_menu == 1:
         choix_region = joueur_region.choixRegion(list_region)
         joueur_region.afficherRegion(choix_region)
         time.sleep(5)
+        os.system('cls')
     elif choix_menu == 2:
-        print("action 2")
+        pokedex.afficheListe()
+    elif choix_menu == 3:
+        pokedex.afficheListe()
+        choix_pokemon = int(input("Quel pokemon voulez-vous visualiser ?"))
+        pokedex.visualiserPokemon(choix_pokemon)
     else:
         print("redemander")
         
