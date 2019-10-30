@@ -23,8 +23,8 @@ class Catch:
         random_number = len(pokemon_capture["results"])
         self.pokemon_capture = pokemon_capture["results"][random.randint(1, random_number)]
 
-    def set_pokeball(self, pokeball):
-        self.pokeball = pokeball
+    def set_pokeball(self):
+        self.pokeball = self.joueur.getInventory()
 
     def get_joueur(self):
         return self.joueur
