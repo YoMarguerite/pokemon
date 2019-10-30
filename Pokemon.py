@@ -10,11 +10,11 @@ class Pokemon:
         #print(pokemonDetails.json())
         j = 0
         typePoke = pokemonDetails.json()
-        print(typePoke["types"])
+        #print(typePoke["types"])
         for pokemon in typePoke["types"][j]:
             #tester si le deuxième tyes existe
-            print("j = " + str(j))
-            print(pokemon) 
+         #   print("j = " + str(j))
+          #  print(pokemon) 
 #            self.typePoke = self.typePoke + str(pokemon)
             j=j+1
  
