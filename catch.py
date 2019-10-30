@@ -1,12 +1,18 @@
 import random
 
 from player import Player
+from Pokedex import pokedex
 from Api import Api
 
 class Catch:
 
 
-    pokeball = [{"name" : "pokeball", "proba" : "0.5" },{"name" : "masterball", "proba" : "0.5"}]
+    pokeball = [
+    {"name" : "pokeball", "proba" : "0.5" },
+    {"name" : "superball", "proba" : "0.7" },
+    {"name" : "hyperball", "proba" : "0.85"},
+    {"name" : "masterball", "proba" : "1"}
+    ]
 
     def __init__(self, joueur):
         self.joueur = joueur
@@ -19,9 +25,10 @@ class Catch:
         self.pokemon_joueur = pokemon_joueur
 
     def set_pokemon_capture(self):
-        pokemon_capture = Api.callApi("pokemon?offset=40&limit=964")
-        random_number = len(pokemon_capture["results"])
-        self.pokemon_capture = pokemon_capture["results"][random.randint(1, random_number)]
+        pokemon_capture = pokedex.getPokemon(20)
+        print(pokemon_capture)
+        random_number = len(pokemon_capture)
+        self.pokemon_capture = pokemon_capture[random.randint(1, random_number)].name
 
     def set_pokeball(self):
         self.pokeball = self.joueur.getInventory()
@@ -39,7 +46,7 @@ class Catch:
         return self.pokeball
 
     def avantCapture(self):
-        if len(self.pokeball) > 0:
+        if len(self.joueur.getInventory().getPokeball()) > 0:
             print("=======CAPTURE=======")
             self.set_pokemon_capture()
             print("Le pokemon est " + self.get_pokemon_capture()["name"])
@@ -91,5 +98,5 @@ class Catch:
 
 
 pokemon = Catch(Player("Paul"))
-pokemon.avantCapture()
-
+pokemon.set_pokemon_capture()
+print(pokemon.get_pokemon_capture())
