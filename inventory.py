@@ -7,13 +7,23 @@ class Inventory:
         if 0<=index and index<len(self.items):
             return self.items[index]
     
+    def getPokeball(self):
+        pokeball = []
+        for item in self.items:
+            if type(item) == "pokeball"
+                pokeball.append(item)
+        return pokeball
+        
     def addItem(self, item):
         try:
-            if len(self.items) < self.limit:
-                self.items.append(item)
-                print(item.getName()+" a été ajouté à l'inventaire.")
+            if item not in self.items:
+                if len(self.items) < self.limit:
+                    self.items.append(item)
+                    print(item.getName()+" a été ajouté à l'inventaire.")
+                else:
+                    print("Votre inventaire est plein.")
             else:
-                print("Votre inventaire est plein.")
+                print("Vous avez déjà cet objet.")
         except:
             print(item.getName()+" n'a pas pu être ajouté à l'inventaire.")
     
