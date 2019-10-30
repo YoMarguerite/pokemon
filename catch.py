@@ -1,6 +1,7 @@
 import random
 
 from player import Player
+from Pokedex import Pokedex
 from Api import Api
 
 class Catch:
@@ -19,7 +20,7 @@ class Catch:
         self.pokemon_joueur = pokemon_joueur
 
     def set_pokemon_capture(self):
-        pokemon_capture = Api.callApi("pokemon?offset=40&limit=964")
+        pokemon_capture = Pokedex.listePokemon
         random_number = len(pokemon_capture["results"])
         self.pokemon_capture = pokemon_capture["results"][random.randint(1, random_number)]
 
@@ -91,5 +92,4 @@ class Catch:
 
 
 pokemon = Catch(Player("Paul"))
-pokemon.avantCapture()
 
