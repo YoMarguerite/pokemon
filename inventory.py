@@ -10,7 +10,7 @@ class Inventory:
     def getPokeball(self):
         pokeball = []
         for item in self.items:
-            if type(item) == "pokeball":
+            if item.getCategory().getName() == "standard-balls":
                 pokeball.append(item)
         return pokeball
 

@@ -7,7 +7,12 @@ from Api import Api
 class Catch:
 
 
-    pokeball = [{"name" : "pokeball", "proba" : "0.5" },{"name" : "masterball", "proba" : "0.5"}]
+    pokeball = [
+    {"name" : "pokeball", "proba" : "0.5" },
+    {"name" : "superball", "proba" : "0.7" },
+    {"name" : "hyperball", "proba" : "0.85"},
+    {"name" : "masterball", "proba" : "1"}
+    ]
 
     def __init__(self, joueur):
         self.joueur = joueur
@@ -41,7 +46,7 @@ class Catch:
         return self.pokeball
 
     def avantCapture(self):
-        if len(self.pokeball) > 0:
+        if len(self.joueur.getInventory().getPokeball()) > 0:
             print("=======CAPTURE=======")
             self.set_pokemon_capture()
             print("Le pokemon est " + self.get_pokemon_capture()["name"])
