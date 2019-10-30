@@ -10,10 +10,10 @@ class Inventory:
     def getPokeball(self):
         pokeball = []
         for item in self.items:
-            if type(item) == "pokeball"
+            if type(item) == "pokeball":
                 pokeball.append(item)
         return pokeball
-        
+
     def addItem(self, item):
         try:
             if item not in self.items:
