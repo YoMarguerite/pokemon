@@ -15,6 +15,13 @@ class Pokemon:
          j=j+1
          #print(typePoke)            
       self.typePoke = typePoke
+      attackPoke = ''
+      for pokemon in typePokejson["moves"]:
+         if i < 8:
+            attackPoke = attackPoke + pokemon['move']['name'] + '  '
+            i=i+1
+            #print(attackPoke)
+      self.attackPoke = attackPoke 
    
    def getId(self):
         return self.id 
@@ -35,3 +42,8 @@ class Pokemon:
         return self.typePoke
    def setTypePoke(self, typePoke):
       self.typePoke = typePoke
+
+   def getAttackPoke(self):
+        return self.attackPoke
+   def setAttackPoke(self, attackPoke):
+      self.attackPoke = attackPoke

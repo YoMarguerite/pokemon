@@ -20,4 +20,4 @@ class Pokedex:
     def afficheListe(self):
      i = 0
      for pokemon in self.listePokemon:
-         print("Le n°"+ str(pokemon.getId()) +" est : "+ pokemon.getName() + " et il est de type :"+ pokemon.getTypePoke())
+         print("Le n°"+ str(pokemon.getId()) +" est : "+ pokemon.getName() + " et il est de type :"+ pokemon.getTypePoke() + "ses attaques sont : "+pokemon.getAttackPoke())
