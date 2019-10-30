@@ -20,6 +20,9 @@ class Player:
     def setCredit(self, credit):
         self.credit = credit
 
+    def addCredit(self, nb):
+        self.credit = self.credit + nb
+
     def getPokemon(self, index):
         if ((0 <= index)and(index<=len(self.team))):
             return self.team[index]
