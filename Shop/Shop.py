@@ -42,7 +42,7 @@ class Shop:
         :type player: Player
         :type item: Items
         """
-        player.getInventory().addsdItem(item)
+        player.getInventory().addItem(item)
 
     def sell(self, player, item):
         """
