@@ -1,21 +1,37 @@
 from Api import Api
 import requests
-class Pokemon: 
-  
-     def __init__(self, id, nom,url):
-        self.id = id
-        self.nom = nom
-        self.url = url
-        pokemonDetails = requests.get(url)
-        #print(pokemonDetails.json())
-        j = 0
-        typePoke = pokemonDetails.json()
-        #print(typePoke["types"])
-        for pokemon in typePoke["types"][j]:
-            #tester si le deuxième tyes existe
-         #   print("j = " + str(j))
-          #  print(pokemon) 
-#            self.typePoke = self.typePoke + str(pokemon)
-            j=j+1
- 
-         
+class Pokemon:
+   def __init__(self, id, name,url):
+      self.id = id
+      self.name = name
+      self.url = url
+      pokemonDetails = requests.get(url)
+      j = 0
+      i = 0
+      typePokejson = pokemonDetails.json()
+      typePoke = ''
+      for pokemon in typePokejson["types"]:
+         typePoke = typePoke + pokemon['type']['name'] + ' '
+         j=j+1
+         #print(typePoke)            
+      self.typePoke = typePoke
+   
+   def getId(self):
+        return self.id 
+   def setId(self, id ):
+      self.id = id
+   
+   def getName(self):
+        return self.name
+   def setName(self, name):
+      self.name = name
+   
+   def getUrl(self):
+        return self.url
+   def setUrl(self, url):
+      self.url = url
+   
+   def getTypePoke(self):
+        return self.typePoke
+   def setTypePoke(self, typePoke):
+      self.typePoke = typePoke
