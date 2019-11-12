@@ -13,6 +13,8 @@ def menu(joueur, region):
     print("1 - Aller dans une nouvelle région")
     print("2 - Accèder au Pokedex")
     print("3 - Visualiser un Pokemon du pokedex")
+    print("4 - Joueur")
+    print("5 - Quitter")
 
 #Initialisation
 pokedex = Pokedex()
@@ -45,6 +47,10 @@ while quitter == False:
         pokedex.afficheListe()
         choix_pokemon = int(input("Quel pokemon voulez-vous visualiser ?"))
         pokedex.visualiserPokemon(choix_pokemon)
+    elif choix_menu == 4:
+        joueur.menu()
+    elif choix_menu == 5:
+        print("Bye bye !")
+        quitter = True
     else:
         print("redemander")
-        

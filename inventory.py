@@ -1,3 +1,6 @@
+from Shop.Items import Items
+import os
+
 class Inventory:
     def __init__(self, limit):
         self.items = []
@@ -38,12 +41,27 @@ class Inventory:
             print("L'item n'a pas pu être supprimé de l'inventaire.")
 
     def displayItem(self):
+        os.system('cls')
         i = 0
         print("------INVENTAIRE------")
         for item in self.items:
-            print(str(i)+"-"+item.name)
+            print(str(i)+" - "+item.name)
             i+=1
 
     def getItems(self):
         return self.items
+    
+    def menu(self):
+        retour = False
+        while retour == False:
+            self.displayItem()
+            print(str(len(self.items))+" - Retour" )
+            choix_item = int(input("Choisissez un item :"))
+            if choix_item == len(self.items):
+                retour = True
+            else:
+                print("à voir si on rajoute des actions sur les objets")
+                print(self.getItem(choix_item).getName())
+
+
 

@@ -1,4 +1,5 @@
 from inventory import Inventory
+import os
 
 class Player:
 
@@ -47,8 +48,34 @@ class Player:
             print(pokemon.name+" a bien été supprimé.")
     
     def displayTeam(self):
-        i = 0
-        print("------TEAM------")
-        for pokemon in self.team:
-            print(str(i)+"-"+pokemon.name)
-            i+=1
+        os.system('cls')
+        if len(self.team)>0:
+            i = 0
+            print("------TEAM------")
+            for pokemon in self.team:
+                print(str(i)+"-"+pokemon.name)
+                i+=1
+        else:
+            print("Votre équipe est vide...")
+    
+    def menu(self):
+        retour = False
+        while retour == False:
+            os.system('cls')
+            print("JOUEUR - "+self.getName())
+            print("Vous avez "+str(self.getCredit())+"€")
+            print("1 - Afficher l'équipe pokemon")
+            print("2 - Inventaire")
+            print("3 - Retour")
+            choix_menu = int(input("Que souhaitez-vous faire ?"))
+            os.system('cls')
+            if choix_menu == 1:
+                self.displayTeam()
+                os.system('cls')
+            elif choix_menu == 2:
+                self.getInventory().menu()
+                os.system('cls')
+            elif choix_menu == 3:
+                retour = True
+                
+
