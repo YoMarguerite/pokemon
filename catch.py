@@ -26,12 +26,11 @@ class Catch:
 
     def set_pokemon_capture(self):
         pokemon_capture = pokedex.getPokemon(20)
-        print(pokemon_capture)
         random_number = len(pokemon_capture)
         self.pokemon_capture = pokemon_capture[random.randint(1, random_number)].name
 
     def set_pokeball(self):
-        self.pokeball = self.joueur.getInventory()
+        self.pokeball = self.pokeball
 
     def get_joueur(self):
         return self.joueur
@@ -49,7 +48,7 @@ class Catch:
         if len(self.joueur.getInventory().getPokeball()) > 0:
             print("=======CAPTURE=======")
             self.set_pokemon_capture()
-            print("Le pokemon est " + self.get_pokemon_capture()["name"])
+            print("Le pokemon est " + self.get_pokemon_capture())
             print("Voulez vous le capturer ?")
             print("1 - Oui")
             print("2 - Non")
@@ -97,6 +96,7 @@ class Catch:
         return print("Non-capture")
 
 
-pokemon = Catch(Player("Paul"))
-pokemon.set_pokemon_capture()
-print(pokemon.get_pokemon_capture())
+# pokemon = Catch(Player("Paul"))
+# # print(pokemon.get_joueur().getInventory().getPokeball())
+# pokemon.avantCapture()
+# print(pokemon.get_pokemon_capture())

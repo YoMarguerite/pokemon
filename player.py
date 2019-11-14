@@ -37,7 +37,7 @@ class Player:
                 print(pokemon["name"]+" a été ajouté à l'ordi.")
             else:
                 self.team.append(pokemon)
-                print(pokemon["name"]+" a été ajouté à l'équipe.")
+                print(pokemon+" a été ajouté à l'équipe.")
         else:
             print("Vous possédez déjà "+pokemon.name)
 
@@ -53,7 +53,7 @@ class Player:
             i = 0
             print("------TEAM------")
             for pokemon in self.team:
-                print(str(i)+"-"+pokemon.name)
+                print(str(i)+"-"+pokemon)
                 i+=1
         else:
             print("Votre équipe est vide...")

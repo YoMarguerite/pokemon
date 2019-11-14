@@ -11,7 +11,12 @@ class Inventory:
             return self.items[index]
 
     def getPokeball(self):
-        pokeball = []
+        pokeball =  [
+                        {"name" : "pokeball", "proba" : "0.5" },
+                        {"name" : "superball", "proba" : "0.7" },
+                        {"name" : "hyperball", "proba" : "0.85"},
+                        {"name" : "masterball", "proba" : "1"}
+                    ]
         for item in self.items:
             if item.getCategory().getName() == "standard-balls":
                 pokeball.append(item)
