@@ -59,8 +59,7 @@ while quitter == False:
         if action == 1:
             print("Que voulez-vous acheter ?")
             for item in shop.getListItem():
-                print(item.getId() + item.getName())
-                print(item.getCost())
+                print(str(item.getId()) + " - " + item.getName() + " | " + str(item.getCost()))
             ids = int(input("Choisissez ce que vous voulez acheter"))
             shop.buy(joueur, shop.getById(ids))
         elif action == 2:
