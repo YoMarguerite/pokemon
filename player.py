@@ -29,6 +29,9 @@ class Player:
     def getPokemon(self, index):
         if ((0 <= index)and(index<=len(self.team))):
             return self.team[index]
+
+    def getTeam(self):
+        return self.team
     
     def addPokemon(self, pokemon):
         if (pokemon not in self.team)and(pokemon not in self.ordi):
