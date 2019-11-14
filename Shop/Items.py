@@ -2,14 +2,21 @@ from Shop import ItemCategory
 
 
 class Items:
+    id = 0
     name = '',
     cost = 0,
     category = ItemCategory
 
-    def __init__(self, name, cost):
+    def __init__(self, id, name, cost):
         self.id = id,
         self.name = name,
         self.cost = cost
+
+    def getId(self):
+        return self.id
+
+    def setId(self, id):
+        self.id = id
 
     def getName(self):
         return self.name

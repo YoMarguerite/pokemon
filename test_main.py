@@ -3,6 +3,8 @@ from Api import Api
 from player import Player
 from Pokedex import Pokedex
 from Region import Region
+from inventory import Inventory
+from Shop.Shop import Shop
 
 def menu(joueur, region):
     len_nom = len(joueur) + 4
@@ -14,13 +16,16 @@ def menu(joueur, region):
     print("2 - Accèder au Pokedex")
     print("3 - Visualiser un Pokemon du pokedex")
     print("4 - Joueur")
-    print("5 - Quitter")
+    print("5 - Boutique")
+    print("6- Quitter")
 
 #Initialisation
 pokedex = Pokedex()
 liste_pokemon = []
 liste_pokemon = pokedex.getPokemon(int(input("Renseigner le nombre de pokemons que vous-voulez dans votre monde ?")))
 
+inventory = Inventory(10)
+shop = Shop()
 region = Api.callApi("region")
 joueur_region = Region()
 joueur_region.setRegion(str(region["results"][0]["name"]))
@@ -50,6 +55,17 @@ while quitter == False:
     elif choix_menu == 4:
         joueur.menu()
     elif choix_menu == 5:
+        action = int(input("Voulez-vous acheter (1) ou vendre ? (2)"))
+        if action == 1:
+            print("Que voulez-vous acheter ?")
+            for item in shop.getListItem():
+                print(item.getId() + item.getName())
+                print(item.getCost())
+            ids = int(input("Choisissez ce que vous voulez acheter"))
+            shop.buy(joueur, shop.getById(ids))
+        elif action == 2:
+            print("Choissisez un objet à vendre : ")
+    elif choix_menu == 6:
         print("Bye bye !")
         quitter = True
     else:

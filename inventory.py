@@ -27,13 +27,13 @@ class Inventory:
             if item not in self.items:
                 if len(self.items) < self.limit:
                     self.items.append(item)
-                    print(str(item.getName())+" a été ajouté à l'inventaire.")
+                    print(item.getName()+" a été ajouté à l'inventaire.")
                 else:
                     print("Votre inventaire est plein.")
             else:
                 print("Vous avez déjà cet objet.")
         except:
-            print(item.getName()+" n'a pas pu être ajouté à l'inventaire.")
+            print("Erreur l'objet n'a pas pu être ajouté à l'inventaire.")
 
     def delItem(self, item):
         try:
@@ -50,7 +50,7 @@ class Inventory:
         i = 0
         print("------INVENTAIRE------")
         for item in self.items:
-            print(str(i)+" - "+item.name)
+            print(item.getId() + " " + item.getName())
             i+=1
 
     def getItems(self):

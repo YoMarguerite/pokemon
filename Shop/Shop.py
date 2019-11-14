@@ -13,11 +13,13 @@ class Shop:
 
     def filllistitem(self):
         results = Api.callApi('item/').get('results')
+        i = 1
         for items in results:
             # Récupérer les détails de l'Item en appelant l'URL de détails
             item = Api.callApi(items.get('url'))
             # ajouter à la liste d'Item de la boutique
-            self.listItems.append(Items(item.get('name'), item.get('cost')))
+            self.listItems.append(Items(i, item.get('name'), item.get('cost')))
+            i = i + 1
 
     def filllistcategory(self):
         """
@@ -53,4 +55,11 @@ class Shop:
         if item.getCost() > 0:
             amount = item.getCost * 0.20
             player.addCredit(amount)
-            ("Vous avez vendu l'objet " + item.getName())
+            print("Vous avez vendu l'objet " + item.getName())
+
+    def getById(self, ids):
+        for item in self.listItems:
+            if item.id == ids:
+                return item
+
+
