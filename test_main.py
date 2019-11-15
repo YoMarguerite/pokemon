@@ -2,6 +2,7 @@ import os, time
 from Api import Api
 from player import Player
 from Pokedex import Pokedex
+from Pokemon import Pokemon
 from Region import Region
 from inventory import Inventory
 from Shop.Shop import Shop
@@ -36,6 +37,7 @@ list_region = joueur_region.chargerListRegion(region["results"])
 
 joueur_nom = input("Bonjour nouveau dresseur, pouvons-nous savoir quel est votre nom ?")
 joueur = Player(joueur_nom)
+joueur.addPokemon(Pokemon(1, "chimchar", "https://pokeapi.co/api/v2/pokemon/390/"))
 
 #Début du jeu
 quitter = False

@@ -13,8 +13,8 @@ class Pokemon:
       typePokejson = pokemonDetails.json()
       self.typePoke = []
       self.attackPoke = []
-      for types in typePokejson["types"]:
-         self.typePoke.append(TypePokemon(types['type']['name'], types['type']['url']))
+      for typeP in typePokejson["types"]:
+         self.typePoke.append(TypePokemon(typeP['type']['name'], typeP['type']['url']))
       for move in typePokejson["moves"]:
          if i < 7:
             self.attackPoke.append(Move(move['move']['name'],move['move']['url']))

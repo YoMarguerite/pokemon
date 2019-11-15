@@ -37,13 +37,13 @@ class Player:
     def addPokemon(self, pokemon):
         if (pokemon not in self.team)and(pokemon not in self.ordi):
             if (len(self.team) == 6):
-                self.ordi.append(Pokemon(1,pokemon["name"],pokemon["url"]))
-                print(pokemon["name"]+" a été ajouté à l'ordi.")
+                self.ordi.append(pokemon)
+                print(pokemon.getName()+" a été ajouté à l'ordi.")
             else:
-                self.team.append(Pokemon(1,pokemon["name"],pokemon["url"]))
-                print(pokemon["name"]+" a été ajouté à l'équipe.")
+                self.team.append(pokemon)
+                print(pokemon.getName()+" a été ajouté à l'équipe.")
         else:
-            print("Vous possédez déjà "+pokemon.name)
+            print("Vous possédez déjà "+pokemon.getName())
 
     def delPokemon(self, index):
         if ((0 <= index)and(index<=len(self.team))):
@@ -57,7 +57,7 @@ class Player:
             i = 0
             print("------TEAM------")
             for pokemon in self.team:
-                print(str(i)+"-"+pokemon)
+                print(str(i)+"-"+pokemon.getName())
                 i+=1
         else:
             print("Votre équipe est vide...")

@@ -8,9 +8,9 @@ class Enemy:
         self.player = Player(name)
         numberPokemon = randint(2,4)
 
-        pokedex.getPokemon(6)
+        pokedex.getPokemon(50)
         for i in range(numberPokemon):
-            self.player.addPokemon(pokedex.listePokemon[randint(0,5)])
+            self.player.addPokemon(pokedex.listePokemon[randint(0,49)])
     
     def displayEnemy(self):
         print("------ Enemy - "+ str(self.player.getName()) +"------")
