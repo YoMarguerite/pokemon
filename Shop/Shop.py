@@ -39,12 +39,6 @@ class Shop:
     def getListCategory(self):
         return self.listCategory
 
-    def buy(self, player, item):
-        """
-        :type player: Player
-        :type item: Items
-        """
-        player.getInventory().addItem(item)
 
     def sell(self, player, item):
         """
@@ -53,7 +47,7 @@ class Shop:
         :param item: Items
         """
         if item.getCost() > 0:
-            amount = item.getCost * 0.20
+            amount = item.getCost() * 0.20
             player.addCredit(amount)
             print("Vous avez vendu l'objet " + item.getName())
 

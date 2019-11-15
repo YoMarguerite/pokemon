@@ -50,7 +50,7 @@ class Inventory:
         i = 0
         print("------INVENTAIRE------")
         for item in self.items:
-            print(item.getId() + " " + item.getName())
+            print(str(item.getId()) + " " + item.getName())
             i+=1
 
     def getItems(self):
@@ -68,5 +68,8 @@ class Inventory:
                 print("à voir si on rajoute des actions sur les objets")
                 print(self.getItem(choix_item).getName())
 
-
+    def getById(self, ids):
+        for item in self.getItems():
+            if item.id == ids:
+                return item
 

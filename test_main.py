@@ -63,9 +63,16 @@ while quitter == False:
             for item in shop.getListItem():
                 print(str(item.getId()) + " - " + item.getName() + " | " + str(item.getCost()))
             ids = int(input("Choisissez ce que vous voulez acheter"))
-            shop.buy(joueur, shop.getById(ids))
+            item = shop.getById(ids)
+            inventory.addItem(item)
+            joueur.setCredit(joueur.getCredit() - item.getCost())
         elif action == 2:
             print("Choissisez un objet à vendre : ")
+            inventory.displayItem()
+            ids = int(input("Quel objet voulez-vous vendre ?"))
+
+            shop.sell(joueur, inventory.getById(ids))
+            inventory.delItem(inventory.getById(ids))
     elif choix_menu == 6:
         print("Bye bye !")
         quitter = True
