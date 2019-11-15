@@ -1,16 +1,16 @@
 from player import Player
-from pokedex import pokedex
-from pokemon import Pokemon
+from Pokedex import pokedex
 from random import *
-²
+
 class Enemy:
 
     def __init__(self, name):
         self.player = Player(name)
         numberPokemon = randint(2,4)
-        pokedex.getPokemon(50)
+
+        pokedex.getPokemon(6)
         for i in range(numberPokemon):
-            self.player.addPokemon(pokedex.listePokemon[randint(0,49)])
+            self.player.addPokemon(pokedex.listePokemon[randint(0,5)])
     
     def displayEnemy(self):
         print("------ Enemy - "+ str(self.player.getName()) +"------")

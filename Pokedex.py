@@ -21,7 +21,7 @@ class Pokedex:
         i = 0
         print("--------------- Le pokedex contient les pokemons suivants---------------")
         for pokemon in self.listePokemon:
-            print("Le n°"+ str(pokemon.getId()) +" est : "+ pokemon.getName() + ", il est de type :"+ pokemon.getTypePoke() + "ses attaques sont : "+pokemon.getAttackPoke())
+            print("Le n°"+ str(pokemon.getId()) +" est : "+ pokemon.getName() + ", il est de type :"+ pokemon.getTypePoke()[0].getName() + "/" + pokemon.getTypePoke()[1].getName())
 
     def visualiserPokemon(self, id):
         getAsciiPoke(id)

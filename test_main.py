@@ -5,6 +5,7 @@ from Pokedex import Pokedex
 from Region import Region
 from inventory import Inventory
 from Shop.Shop import Shop
+from fight import Fight
 
 def menu(joueur, region):
     len_nom = len(joueur) + 4
@@ -17,6 +18,7 @@ def menu(joueur, region):
     print("3 - Visualiser un Pokemon du pokedex")
     print("4 - Joueur")
     print("5 - Boutique")
+    print("7 - Combat")
     print("6- Quitter")
 
 #Initialisation
@@ -67,5 +69,8 @@ while quitter == False:
     elif choix_menu == 6:
         print("Bye bye !")
         quitter = True
+    elif choix_menu == 7:
+        combat = Fight(joueur)
+        combat.avantCombat()
     else:
         print("redemander")

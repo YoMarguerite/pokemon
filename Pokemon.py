@@ -20,6 +20,9 @@ class Pokemon:
             self.attackPoke.append(Move(move['move']['name'],move['move']['url']))
             i=i+1
 
+   def __getitem__(self, id):
+      return Pokemon(id, self.name, self.url)
+
    def getId(self):
       return self.id 
    def setId(self, id ):
@@ -44,3 +47,5 @@ class Pokemon:
       return self.attackPoke
    def setAttackPoke(self, attackPoke):
       self.attackPoke = attackPoke
+   def getAttackPokeById(self, id):
+      return self.attackPoke[id]

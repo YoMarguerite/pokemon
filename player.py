@@ -1,4 +1,5 @@
 from inventory import Inventory
+from Pokemon import Pokemon
 import os
 
 class Player:
@@ -36,11 +37,11 @@ class Player:
     def addPokemon(self, pokemon):
         if (pokemon not in self.team)and(pokemon not in self.ordi):
             if (len(self.team) == 6):
-                self.ordi.append(pokemon)
+                self.ordi.append(Pokemon(1,pokemon["name"],pokemon["url"]))
                 print(pokemon["name"]+" a été ajouté à l'ordi.")
             else:
-                self.team.append(pokemon)
-                print(pokemon+" a été ajouté à l'équipe.")
+                self.team.append(Pokemon(1,pokemon["name"],pokemon["url"]))
+                print(pokemon["name"]+" a été ajouté à l'équipe.")
         else:
             print("Vous possédez déjà "+pokemon.name)
 
